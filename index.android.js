@@ -1,53 +1,44 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry } from 'react-native';
+import { Navigator } from 'react-native-deprecated-custom-components'
+import CenaPrincipal from './src/components/CenaPrincipal';
+import CenaClientes from './src/components/CenaClientes';
+import CenaContatos from './src/components/CenaContatos';
+import CenaEmpresa from './src/components/CenaEmpresa';
+import CenaServicos from './src/components/CenaServicos';
 
 export default class ATMConsultoria extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        <Navigator
+            initialRoute={{ id: 'principal'}}
+            renderScene={(route, navigator) => {
+                /*definir a cena na rota*/
+                if (route.id === 'principal') {
+                    //exibir a CenaPrincipal
+                    return (<CenaPrincipal navigator={navigator} />);
+                }
+                if (route.id === 'cliente') {
+                    //ebibir CenaClientes
+                    return (<CenaClientes navigator={navigator} />);
+                }
+                if (route.id === 'contato') {
+                    //exibir a CenaContatos
+                    return (<CenaContatos nacigator={navigator} />);
+                }
+                if (route.id === 'empresa') {
+                    //exibir CenaServico
+                    return (<CenaEmpresa navigator={navigator} />);
+                }
+                if (route.id === 'servicos') {
+                    return (<CenaServicos navigator={navigator} />);
+                }
+            }}
+
+        />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('ATMConsultoria', () => ATMConsultoria);
