@@ -13,25 +13,20 @@ export default class ATMConsultoria extends Component {
         <Navigator
             initialRoute={{ id: 'principal'}}
             renderScene={(route, navigator) => {
-                /*definir a cena na rota*/
-                if (route.id === 'principal') {
-                    //exibir a CenaPrincipal
-                    return (<CenaPrincipal navigator={navigator} />);
-                }
-                if (route.id === 'cliente') {
-                    //ebibir CenaClientes
-                    return (<CenaClientes navigator={navigator} />);
-                }
-                if (route.id === 'contato') {
-                    //exibir a CenaContatos
-                    return (<CenaContatos nacigator={navigator} />);
-                }
-                if (route.id === 'empresa') {
-                    //exibir CenaServico
-                    return (<CenaEmpresa navigator={navigator} />);
-                }
-                if (route.id === 'servicos') {
-                    return (<CenaServicos navigator={navigator} />);
+
+                switch (route.id) {
+                    case 'principal':
+                        return (<CenaPrincipal navigator={navigator} />);
+                    case 'cliente':
+                        return (<CenaClientes navigator={navigator} />);
+                    case 'contato':
+                        return (<CenaContatos navigator={navigator} />);
+                    case 'empresa':
+                        return (<CenaEmpresa navigator={navigator} />);
+                    case 'servicos':
+                        return (<CenaServicos navigator={navigator} />);
+                    default:
+                        return false;
                 }
             }}
 

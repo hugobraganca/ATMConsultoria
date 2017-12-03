@@ -14,9 +14,11 @@ export default class ATMConBarraNavegacaosultoria extends Component {
 
     if (this.props.voltar) {
         return (
-            <View style={styles.barraTitulo}>
+            <View style={[styles.barraTitulo, {backgroundColor: this.props.background}]}>
 
                 <TouchableHighlight
+                    underlayColor={this.props.background}
+                    activeopacity={0.3}
                     onPress={() => {
                         this.props.navigator.pop();
                     }}

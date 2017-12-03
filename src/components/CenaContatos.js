@@ -12,16 +12,16 @@ import BarraNavegacao from './BarraNavegacao';
 const detalheContatos = require('../imgs/detalhe_contato.png');
 
 
-export default class CenaEmpresa extends Component {
+export default class CenaContatos extends Component {
     render() {
         return (
-            <View>
+            <View style={{ flex: 1, backgroundColor: '#fff'}}>
                 <StatusBar
                     //hidden // hidden={true} == hidden
-                    backgroundColor = '#B9C941'
+                    backgroundColor = '#61BD8C'
                 />
 
-                <BarraNavegacao voltar navigator={this.props.navigator} />
+                <BarraNavegacao voltar navigator={this.props.navigator} background = '#61BD8C' />
 
                 <View style={styles.cabecalho}>
                     <Image source={detalheContatos}/>
